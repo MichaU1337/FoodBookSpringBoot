@@ -1,9 +1,10 @@
-package com.mmierzwa.foodbook.registration;
+package com.mmierzwa.foodbook.service;
 
-import com.mmierzwa.foodbook.appuser.AppUser;
-import com.mmierzwa.foodbook.appuser.AppUserRole;
-import com.mmierzwa.foodbook.appuser.AppUserService;
+import com.mmierzwa.foodbook.model.AppUser;
+import com.mmierzwa.foodbook.model.AppUserRole;
 import com.mmierzwa.foodbook.email.EmailSender;
+import com.mmierzwa.foodbook.registration.CustomEmailValidator;
+import com.mmierzwa.foodbook.registration.RegistrationRequest;
 import com.mmierzwa.foodbook.registration.token.ConfirmationToken;
 import com.mmierzwa.foodbook.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -17,9 +18,10 @@ import java.time.LocalDateTime;
 public class RegistrationService {
 
     private final AppUserService appUserService;
-    private final EmailValidator emailValidator;
+    private final CustomEmailValidator emailValidator;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
+
 
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());

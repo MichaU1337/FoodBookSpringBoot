@@ -1,6 +1,8 @@
-package com.mmierzwa.foodbook.email;
+package com.mmierzwa.foodbook.service;
 
+import com.mmierzwa.foodbook.email.EmailSender;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,10 +15,11 @@ import javax.mail.internet.MimeMessage;
 
 @Service
 @AllArgsConstructor
-public class EmailService implements EmailSender{
+public class EmailService implements EmailSender {
     private final static Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
     private final JavaMailSender mailSender;
 
+    @SneakyThrows
     @Override
     @Async
     public void send(String to, String email) {

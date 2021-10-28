@@ -1,8 +1,7 @@
 package com.mmierzwa.foodbook.security.config;
 
-import com.mmierzwa.foodbook.appuser.AppUserService;
+import com.mmierzwa.foodbook.service.AppUserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -11,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @AllArgsConstructor
@@ -25,11 +25,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/api/v*/registration/**")
+                .antMatchers("/registration/**").permitAll()
+                .antMatchers("/recipes/**").permitAll()
+                .antMatchers("/v2/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/", "/home").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
                 .permitAll()
-            .anyRequest()
-            .authenticated().and()
-            .formLogin();
+                .and()
+            .logout()
+                .permitAll();
     }
 
     @Override

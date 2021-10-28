@@ -1,6 +1,6 @@
 package com.mmierzwa.foodbook.registration.token;
 
-import com.mmierzwa.foodbook.appuser.AppUser;
+import com.mmierzwa.foodbook.model.AppUser;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

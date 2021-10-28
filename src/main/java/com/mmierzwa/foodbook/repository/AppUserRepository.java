@@ -1,5 +1,6 @@
-package com.mmierzwa.foodbook.appuser;
+package com.mmierzwa.foodbook.repository;
 
+import com.mmierzwa.foodbook.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,13 +1,12 @@
 package com.mmierzwa.foodbook.service;
 
-import com.mmierzwa.foodbook.exception.UserNotFoundException;
+import com.mmierzwa.foodbook.exception.ResourceNotFoundException;
 import com.mmierzwa.foodbook.model.Recipe;
 import com.mmierzwa.foodbook.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class RecipeService {
@@ -19,7 +18,6 @@ public class RecipeService {
     }
 
     public Recipe addRecipe(Recipe recipe){
-        recipe.setRecipeCode(UUID.randomUUID().toString());
         return recipeRepository.save(recipe);
     }
 
@@ -33,7 +31,7 @@ public class RecipeService {
 
     public Recipe findRecipeById(Long id){
         return recipeRepository.findRecipeById(id)
-                .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Resource by id " + id + " was not found"));
     }
 
     public void deleteRecipe(Long id){

@@ -1,9 +1,10 @@
-package com.mmierzwa.foodbook.appuser;
+package com.mmierzwa.foodbook.service;
 
+import com.mmierzwa.foodbook.model.AppUser;
 import com.mmierzwa.foodbook.registration.token.ConfirmationToken;
 import com.mmierzwa.foodbook.registration.token.ConfirmationTokenService;
+import com.mmierzwa.foodbook.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,11 +35,11 @@ public class AppUserService implements UserDetailsService {
                 .isPresent();
 
         if(userExists){
-            throw new IllegalStateException("email already taken");
+            // TODO check for expiration of an email and whether it is the same data of a person
+            throw new IllegalStateException("The email you have chosen is already taken");
         }
 
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
-
         appUser.setPassword(encodedPassword);
 
         userRepository.save(appUser);
@@ -51,8 +52,6 @@ public class AppUserService implements UserDetailsService {
                 );
 
         confirmationTokenService.saveConfirmationToken(confirmationToken);
-
-        // TODO: SEND EMAIL
 
         return token;
     }

@@ -1,4 +1,4 @@
-package com.mmierzwa.foodbook.appuser;
+package com.mmierzwa.foodbook.model;
 
 public enum AppUserRole {
     USER,

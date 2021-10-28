@@ -1,14 +1,14 @@
 package com.mmierzwa.foodbook.registration;
 
 import org.springframework.stereotype.Service;
+import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.function.Predicate;
 
 @Service
-public class EmailValidator implements Predicate<String> {
+public class CustomEmailValidator implements Predicate<String> {
     @Override
     public boolean test(String s) {
-        //TODO: Regex to validate
-        return true;
+        return EmailValidator.getInstance().isValid(s);
     }
 }

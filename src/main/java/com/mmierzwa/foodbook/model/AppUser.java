@@ -1,4 +1,4 @@
-package com.mmierzwa.foodbook.appuser;
+package com.mmierzwa.foodbook.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

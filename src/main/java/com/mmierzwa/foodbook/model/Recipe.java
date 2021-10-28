@@ -2,10 +2,7 @@ package com.mmierzwa.foodbook.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -13,9 +10,15 @@ import java.io.Serializable;
 public class Recipe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
     private long id;
-    private String title;
+    private String name;
     private String description;
-    private String imageURL;
-    private String recipeCode;
+    private String descriptionSummary;
+    private String category;
+    private int stars;
+    private int servings;
+
+
+
 }
