@@ -31,10 +31,11 @@ public class RecipeService {
 
     public Recipe findRecipeById(Long id){
         return recipeRepository.findRecipeById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Resource by id " + id + " was not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Resource with id " + id + " was not found"));
     }
 
     public void deleteRecipe(Long id){
-        recipeRepository.deleteRecipeById(id);
+        Recipe delRecipe = findRecipeById(id);
+        recipeRepository.delete(delRecipe);
     }
 }

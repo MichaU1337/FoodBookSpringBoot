@@ -22,17 +22,4 @@ public class SwaggerConfig implements WebMvcConfigurer {
                 .paths(PathSelectors.any())
                 .build();
     }
-
-//    private ApiInfo apiInfo() {
-//        return new ApiInfoBuilder()
-//                .title("Spring Demo with Swagger")
-//                .description("Spring Demo with Swagger")
-//                .contact(new Contact("Michał Mierzwa",
-//                        "https://mmierzwa.com",
-//                        "poczta.michau@gmail.com"))
-//                .license("License name here")
-//                .licenseUrl("URL to license")
-//                .version("1.0.1")
-//                .build();
-//    }
 }

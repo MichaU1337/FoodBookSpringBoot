@@ -39,28 +39,15 @@ public class RecipeController {
         return new ResponseEntity<>(newRecipe, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Recipe> updateRecipe(@PathVariable(value = "id") Long recipeId,
-       @Valid @RequestBody Recipe recipe) {
-
-        Recipe editedRecipe = recipeService.findRecipeById(recipeId);
-        editedRecipe.setCategory(recipe.getCategory());
-        editedRecipe.setDescription(recipe.getDescription());
-        editedRecipe.setDescriptionSummary(recipe.getDescriptionSummary());
-        editedRecipe.setName(recipe.getName());
-        editedRecipe.setServings(recipe.getServings());
-        editedRecipe.setStars(recipe.getStars());
-
-        final Recipe updatedRecipe = recipeService.updateRecipe(editedRecipe);
-        return ResponseEntity.ok(updatedRecipe);
+    @PutMapping("/update")
+    public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe) {
+        Recipe updateRecipe = recipeService.updateRecipe(recipe);
+        return new ResponseEntity<>(updateRecipe,HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteRecipe(@PathVariable("id") Long id ){
-        if(recipeService.findRecipeById(id).getId() == id){
-            recipeService.deleteRecipe(id);
-        }
-        else throw new ResourceNotFoundException("There is no record with the Id you have provided: " + id);
+        recipeService.deleteRecipe(id);
 
         return new ResponseEntity<>("record #" + id + " has been deleted", HttpStatus.OK);
     }
