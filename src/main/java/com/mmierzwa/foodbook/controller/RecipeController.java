@@ -46,9 +46,8 @@ public class RecipeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteRecipe(@PathVariable("id") Long id ){
+    public ResponseEntity<?> deleteRecipe(@PathVariable("id") Long id){
         recipeService.deleteRecipe(id);
-
-        return new ResponseEntity<>("record #" + id + " has been deleted", HttpStatus.OK);
+        return new ResponseEntity<>("Record #" + id + " has been deleted", HttpStatus.OK);
     }
 }

@@ -5,10 +5,12 @@ import com.mmierzwa.foodbook.model.Recipe;
 import com.mmierzwa.foodbook.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class RecipeService {
     private final RecipeRepository recipeRepository;
 
@@ -34,8 +36,7 @@ public class RecipeService {
                 .orElseThrow(() -> new ResourceNotFoundException("Resource with id " + id + " was not found"));
     }
 
-    public void deleteRecipe(Long id){
-        Recipe delRecipe = findRecipeById(id);
-        recipeRepository.delete(delRecipe);
+    public void deleteRecipe(Long id) {
+        recipeRepository.deleteRecipeById(id);
     }
 }
