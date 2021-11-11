@@ -1,5 +1,6 @@
-package com.mmierzwa.foodbook.registration.token;
+package com.mmierzwa.foodbook.repository;
 
+import com.mmierzwa.foodbook.model.ConfirmationToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

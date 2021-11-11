@@ -1,8 +1,7 @@
 package com.mmierzwa.foodbook.service;
 
 import com.mmierzwa.foodbook.model.AppUser;
-import com.mmierzwa.foodbook.registration.token.ConfirmationToken;
-import com.mmierzwa.foodbook.registration.token.ConfirmationTokenService;
+import com.mmierzwa.foodbook.model.ConfirmationToken;
 import com.mmierzwa.foodbook.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

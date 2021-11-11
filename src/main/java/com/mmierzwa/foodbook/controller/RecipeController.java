@@ -1,6 +1,5 @@
 package com.mmierzwa.foodbook.controller;
 
-import com.mmierzwa.foodbook.exception.ResourceNotFoundException;
 import com.mmierzwa.foodbook.model.Recipe;
 import com.mmierzwa.foodbook.service.RecipeService;
 import org.springframework.http.HttpStatus;
@@ -8,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController

@@ -1,4 +1,4 @@
-package com.mmierzwa.foodbook.registration.token;
+package com.mmierzwa.foodbook.model;
 
 import com.mmierzwa.foodbook.model.AppUser;
 import lombok.Data;
@@ -31,7 +31,7 @@ public class ConfirmationToken {
     private LocalDateTime confirmedAt;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "app_user_id")
+    @JoinColumn(nullable = false)
     private AppUser appUser;
 
     public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, AppUser appUser) {

@@ -1,5 +1,7 @@
-package com.mmierzwa.foodbook.registration.token;
+package com.mmierzwa.foodbook.service;
 
+import com.mmierzwa.foodbook.model.ConfirmationToken;
+import com.mmierzwa.foodbook.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
