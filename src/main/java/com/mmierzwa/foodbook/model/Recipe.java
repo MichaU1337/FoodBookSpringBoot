@@ -27,6 +27,8 @@ public class Recipe implements Serializable {
     @Min(0L)
     @Max(5L)
     private int difficulty;
+
+    @Min(0L)
     private int servings;
 
     // TODO: Figure out how to add a Map<String,String> using JPA to MYSQL
