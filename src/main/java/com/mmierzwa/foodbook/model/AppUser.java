@@ -31,6 +31,9 @@ public class AppUser implements UserDetails {
     private String email;
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private RecipeList recipeList;
+
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
     private Boolean locked = false;
@@ -40,13 +43,15 @@ public class AppUser implements UserDetails {
                    String lastName,
                    String email,
                    String password,
-                   AppUserRole appUserRole
+                   AppUserRole appUserRole,
+                   RecipeList recipeList
                    ) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
+        this.recipeList = recipeList;
     }
 
     @Override
@@ -65,13 +70,13 @@ public class AppUser implements UserDetails {
         return email;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public String getLastName() {
+//        return lastName;
+//    }
 
     @Override
     public boolean isAccountNonExpired() {

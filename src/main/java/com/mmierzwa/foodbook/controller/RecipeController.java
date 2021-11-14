@@ -13,8 +13,8 @@ import java.util.List;
 @Transactional
 @RequestMapping("/recipes")
 public class RecipeController {
-    private final RecipeService recipeService;
 
+    private final RecipeService recipeService;
     public RecipeController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }

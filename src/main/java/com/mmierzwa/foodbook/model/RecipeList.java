@@ -14,11 +14,11 @@ public class RecipeList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     private AppUser user;
 }

@@ -3,6 +3,7 @@ package com.mmierzwa.foodbook.service;
 import com.mmierzwa.foodbook.model.AppUser;
 import com.mmierzwa.foodbook.model.AppUserRole;
 import com.mmierzwa.foodbook.email.EmailSender;
+import com.mmierzwa.foodbook.model.RecipeList;
 import com.mmierzwa.foodbook.registration.CustomEmailValidator;
 import com.mmierzwa.foodbook.registration.RegistrationRequest;
 import com.mmierzwa.foodbook.model.ConfirmationToken;
@@ -34,7 +35,8 @@ public class RegistrationService {
                 request.getLastName(),
                 request.getEmail(),
                 request.getPassword(),
-                AppUserRole.USER
+                AppUserRole.USER,
+                new RecipeList()
         ));
         String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
         emailSender.send(

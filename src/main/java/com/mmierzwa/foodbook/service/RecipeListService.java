@@ -1,18 +1,19 @@
 package com.mmierzwa.foodbook.service;
 
-import com.mmierzwa.foodbook.model.AppUser;
 import com.mmierzwa.foodbook.model.RecipeList;
 import com.mmierzwa.foodbook.repository.RecipeListRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class RecipeListService {
 
-    private RecipeListRepository repository;
+    private final RecipeListRepository repository;
 
-    public List<RecipeList> listOfRecipes(AppUser user){
-        return repository.findByUser(user);
+    public List<RecipeList> listOfRecipes(String userEmail){
+        return repository.findByUser_Email(userEmail);
     }
 }
