@@ -26,26 +26,26 @@ class RecipeListRepositoryTest {
     @Autowired
     private TestEntityManager entityManager;
 
-    @Test
-    public void testAddOneRecipeItem(){
-        Recipe recipe = entityManager.find(Recipe.class, 51L);
-        AppUser user = entityManager.find(AppUser.class, 3L);
+//    @Test
+//    public void testAddOneRecipeItem(){
+//        Recipe recipe = entityManager.find(Recipe.class, 51L);
+//        AppUser user = entityManager.find(AppUser.class, 3L);
+//
+//        RecipeList recipeItem = new RecipeList();
+//        recipeItem.setRecipe(recipe);
+//        recipeItem.setUser(user);
+//
+//        RecipeList savedRecipeItem = repository.save(recipeItem);
+//
+//        assertTrue(savedRecipeItem.getId() > 0);
+//    }
 
-        RecipeList recipeItem = new RecipeList();
-        recipeItem.setRecipe(recipe);
-        recipeItem.setUser(user);
-
-        RecipeList savedRecipeItem = repository.save(recipeItem);
-
-        assertTrue(savedRecipeItem.getId() > 0);
-    }
-
-    @Test
-    public void testGetRecipeItemByUser(){
-        AppUser appUser = new AppUser();
-        appUser.setEmail("mm@gmail.com");
-
-        List<RecipeList> userRecipes = repository.findByUser_Email(appUser.getEmail());
-        assertEquals(2,userRecipes.size());
-    }
+//    @Test
+//    public void testGetRecipeItemByUser(){
+//        AppUser appUser = new AppUser();
+//        appUser.setEmail("mm@gmail.com");
+//
+//        List<RecipeList> userRecipes = repository.findByUser_Email(appUser.getEmail());
+//        assertEquals(2,userRecipes.size());
+//    }
 }

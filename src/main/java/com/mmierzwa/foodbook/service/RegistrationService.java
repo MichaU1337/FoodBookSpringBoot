@@ -38,7 +38,7 @@ public class RegistrationService {
                 AppUserRole.USER,
                 new RecipeList()
         ));
-        String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
+        String link = "http://localhost:8080/registration/confirm?token=" + token;
         emailSender.send(
                 request.getEmail(),
                 buildEmail(request.getFirstName(), link));
@@ -64,7 +64,7 @@ public class RegistrationService {
         confirmationTokenService.setConfirmedAt(token);
         appUserService.enableAppUser(confirmationToken.getAppUser().getEmail());
 
-        return "confirmed";
+        return "Email validation - Done!";
     }
 
     private String buildEmail(String name, String link) {

@@ -19,6 +19,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
                 .groupName("foodbookSwag")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.mmierzwa.foodbook"))
+
                 .paths(PathSelectors.any())
                 .build();
     }
